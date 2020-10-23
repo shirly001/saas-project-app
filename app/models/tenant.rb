@@ -14,6 +14,8 @@ class Tenant < ActiveRecord::Base
   validates_presence_of :name
     def self.create_new_tenant(tenant_params, user_params, coupon_params)
 
+      #tenant only accept tenant's name
+      #tenant = Tenant.new(:name => tenant_params[:name])
       tenant = Tenant.new(tenant_params)
 
       if new_signups_not_permitted?(coupon_params)
